@@ -1,0 +1,9 @@
+[package]
+name = "bevy_utils_mod"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+image = "0.24"
+icns-rs = { version = "0.1" }
+thiserror = "1"
