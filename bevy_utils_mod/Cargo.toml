@@ -7,3 +7,4 @@ edition = "2021"
 image = "0.24"
 icns-rs = { version = "0.1" }
 thiserror = "1"
+clap = { version = "4.3", optional = true }

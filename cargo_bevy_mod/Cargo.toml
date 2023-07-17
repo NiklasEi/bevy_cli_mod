@@ -5,4 +5,4 @@ edition = "2021"
 
 [dependencies]
 clap = { version = "4.3", features = ["derive"] }
-bevy_utils_mod = {path = "../bevy_utils_mod"}
+bevy_utils_mod = {path = "../bevy_utils_mod", features = ["clap"]}

@@ -5,11 +5,12 @@ pub mod icon;
 
 pub struct BevyProjectConfig {
     pub build_data_directory: PathBuf,
-    pub targets: HashSet<BuildTargets>,
+    pub platforms: HashSet<Platform>,
 }
 
-#[derive(Eq, Hash, PartialEq)]
-pub enum BuildTargets {
+#[cfg_attr(feature = "clap", derive(clap::ValueEnum))]
+#[derive(Eq, Hash, PartialEq, Clone, Debug)]
+pub enum Platform {
     Windows,
     Linux,
     Mac,
@@ -18,17 +19,17 @@ pub enum BuildTargets {
     Ios,
 }
 
-impl BuildTargets {
-    pub fn all() -> HashSet<BuildTargets> {
-        let mut targets: HashSet<BuildTargets> = Default::default();
+impl Platform {
+    pub fn all() -> Vec<Platform> {
+        let mut platforms = vec![];
 
-        targets.insert(BuildTargets::Windows);
-        targets.insert(BuildTargets::Linux);
-        targets.insert(BuildTargets::Mac);
-        targets.insert(BuildTargets::Web);
-        targets.insert(BuildTargets::Android);
-        targets.insert(BuildTargets::Ios);
+        platforms.push(Platform::Windows);
+        platforms.push(Platform::Linux);
+        platforms.push(Platform::Mac);
+        platforms.push(Platform::Web);
+        platforms.push(Platform::Android);
+        platforms.push(Platform::Ios);
 
-        targets
+        platforms
     }
 }
